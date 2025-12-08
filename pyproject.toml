@@ -1,0 +1,45 @@
+[project]
+name = "advent_of_code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Henry Guerra", email = "hg2866066@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastexcel>=0.12.1",
+    "pandera[polars]>=0.25.0",
+    "polars>=1.32.0",
+    "pydantic>=2.10.6",
+    "python-dotenv>=1.0.1",
+    "xlsxwriter>=3.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "pre-commit>=4.1.0",
+    "pytest>=8.3.4",
+    "import-linter>=2.3",
+]
+
+[project.scripts]
+dev = "advent_of_code:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 88
+preview = true
+extend-exclude = '''tests/data'''
+
+# config uv workspaces
+
+[tool.uv.sources]
+sharepoint_client = { workspace = true }
+
+[tool.uv.workspace]
+members = [ "packages/*" ]

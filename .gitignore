@@ -1,0 +1,31 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Ignorar contenido específico de cada carpeta
+data/raw/*
+data/process/*
+data/final/*
+data/results/*
+
+# Excepto los archivos .gitkeep
+!data/raw/.gitkeep
+!data/process/.gitkeep
+!data/final/.gitkeep
+!data/results/.gitkeep
+
+# Editor
+.vscode/
+
+# Virtual environments
+.venv
+.venv_linux
+
+.env
+.import_linter_cache
+
+repomix-output.xml # cspell:ignore repomix

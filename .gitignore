@@ -26,6 +26,6 @@ data/results/*
 .venv_linux
 
 .env
-.import_linter_cache
+
 
 repomix-output.xml # cspell:ignore repomix

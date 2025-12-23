@@ -35,23 +35,3 @@ repos:
     hooks:
       - id: bandit
         args: ["-c", "pyproject.toml", "--exclude", "tests"]
-
-  - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.0.0
-    hooks:
-      - id: cspell
-        additional_dependencies:
-          - "@cspell/dict-es-es"
-        name: Check spelling in code and docs
-        args: ["--gitignore", "--show-context", "--show-suggestions"]
-
-  - repo: local
-    hooks:
-      - id: cspell-commit-msg
-        name: Check spelling in commit message
-        entry: cspell
-        language: node
-        stages: [commit-msg]
-        args: ["--locale=es,en", "--config=.cspell.json", "--no-progress", "--"]
-        pass_filenames: false
-        additional_dependencies: ["cspell"]

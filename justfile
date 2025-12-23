@@ -8,8 +8,7 @@ install:
     @uv sync --all-packages
     @uv run pre-commit install
 
-check: install import_linter
-    uv export --format requirements-txt > requirements.txt
+check: install
     @echo "🚀 Checking lock file consistency with 'pyproject.toml'"
     @uv lock --locked
     @echo "🚀 Linting code: Running pre-commit"
@@ -18,12 +17,8 @@ check: install import_linter
 # Ejecutar pruebas
 test_unit *args:
     @echo "🚀 Testing code: Running pytest"
-    @uv run pytest tests/unit {{args}}
+    @uv run pytest tests/year_2025 {{args}}
 
-# Ejecutar los test de integración
-test_integration *args:
-    @echo "🚀 Testing code: Running pytest"
-    @uv run pytest tests/integration {{args}}
 
 # Ejecutar entorno de desarrollo
 run *args:
@@ -33,7 +28,3 @@ run *args:
 # Listar variables globales de proyecto
 list_global_vars:
     @grep -r "^[A-Z_][A-Z0-9_]*\s*\(:\s*[^=]*\)\?=" --include="*.py" src
-
-# Ejecutar la validación de la arquitectura del proyecto
-import_linter:
-    @uv run lint-imports

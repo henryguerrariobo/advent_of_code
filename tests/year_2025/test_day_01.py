@@ -28,3 +28,26 @@ def test_example_from_statement():
     assert dial.count_zero == 3
 
     print(dial.count_zero)
+
+
+def test_dial_part_two_example():
+    instructions = [
+        ("L", 68),
+        ("L", 30),
+        ("R", 48),
+        ("L", 5),
+        ("R", 60),
+        ("L", 55),
+        ("L", 1),
+        ("L", 99),
+        ("R", 14),
+        ("L", 82),
+    ]
+
+    dial = Dial(start_position=50)
+
+    for instr in instructions:
+        dial.run_dial_part_two(instr)
+
+    assert dial.count_zero == 6
+    print(dial.count_zero)

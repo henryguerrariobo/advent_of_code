@@ -25,3 +25,24 @@ def solve_day_01() -> int:
         dial.run_dial(instr)
 
     return dial.count_zero
+
+
+def solve_day_01_part_two() -> int:
+    """
+    Ejecuta la solución del día 01.
+
+    Lee las instrucciones, simula el movimiento del dial
+    y devuelve cuántas veces el dial pasa por la posición 0.
+
+    Returns:
+        int: Número de veces que el dial pasa por 0.
+
+    """
+    instructions = read_txt_instructions("data/raw/dial.txt")
+    parsed = [parse_instruction(i) for i in instructions]
+
+    dial_part_two = Dial()
+    for instr in parsed:
+        dial_part_two.run_dial_part_two(instr)
+
+    return dial_part_two.count_zero

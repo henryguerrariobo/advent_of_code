@@ -52,3 +52,28 @@ class Dial:
 
         if self.position_initial == 0:
             self.count_zero += 1
+
+    def run_dial_part_two(self, instruction: tuple[str, int]) -> None:
+        """
+        Ejecuta una instrucción sobre el dial.
+
+        Actualiza la posición del dial según la instrucción
+        recibida y cuenta cuántas veces el contador pasa por 0.
+
+        Args:
+            instruction (tuple[str, int]): Tupla con la dirección
+                ('L' o 'R') y la cantidad de pasos.
+
+        """
+        letra, valor = instruction
+
+        for _ in range(valor):
+            if letra == "L":
+                self.position_initial -= 1
+            elif letra == "R":
+                self.position_initial += 1
+
+            self.position_initial %= 100
+
+            if self.position_initial == 0:
+                self.count_zero += 1

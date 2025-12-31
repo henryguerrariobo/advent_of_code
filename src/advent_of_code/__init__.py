@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 
 from advent_of_code.year_2025.day_01.solve import solve_day_01, solve_day_01_part_two
+from advent_of_code.year_2025.day_02.solve import solve_day_two
 
 
 def config_logging() -> None:
@@ -29,6 +30,8 @@ def run() -> None:
     logging.info(
         "✅ Resultado  según  el metodo ´0x434C49434B´ es: %s", result_part_two
     )
+    result_day_two = solve_day_two()
+    logging.info("✅ Resultado Day 02: %s", result_day_two)
 
 
 if __name__ == "__main__":
